@@ -1,0 +1,29 @@
+### Environment setup
+@baseUrl = http://localhost:8080/api/v1
+
+### Test auth controller - register
+POST  {{baseUrl}}/auth/register
+Content-Type: application/json
+Accept: application/json
+
+{
+  "firstName": "Omar",
+  "lastName": "Ziad",
+  "email": "ziad@example.com",
+  "password": "password123"
+}
+
+### Test auth controller - authenticate (login)
+POST {{baseUrl}}/auth/authenticate
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "ziad@example.com",
+  "password": "password123"
+}
+
+### Test auth controller root (hello endpoint if not secured)
+GET  {{baseUrl}}/demo-controller
+Authorization: Bearer <insert-token>
+Accept: application/json
